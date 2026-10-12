@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'">
+<title>Love Room</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>💌 Love Room</h1>
+    <span id="conn" class="pill">…</span>
+  </header>
+
+  <section>
+    <h2>Ton code</h2>
+    <div class="row">
+      <code id="myCode" class="code">—</code>
+      <button id="copy" class="secondary">Copier</button>
+    </div>
+    <p class="hint">Donne-le à l'autre personne : elle doit l'entrer dans son appli.</p>
+  </section>
+
+  <section>
+    <h2>Ton/ta partenaire</h2>
+    <div id="pairForm" class="row">
+      <input id="partnerInput" placeholder="Son code (ABCDE-FGHJK)" maxlength="16" autocomplete="off" spellcheck="false">
+      <button id="pairBtn">Lier</button>
+    </div>
+    <div id="pairInfo" class="row hidden">
+      <code id="partnerCode" class="code small"></code>
+      <span id="pairState" class="pill"></span>
+      <button id="unpairBtn" class="secondary">Délier</button>
+    </div>
+    <p id="pairMsg" class="msg"></p>
+  </section>
+
+  <section id="sendSection">
+    <h2>Envoyer un GIF</h2>
+    <div class="row">
+      <input id="urlInput" placeholder="Lien Giphy, Tenor ou Imgur" autocomplete="off" spellcheck="false">
+      <button id="sendUrl">Envoyer</button>
+    </div>
+    <div id="drop" class="drop" tabindex="0">
+      Glisse un GIF ici ou <button id="pick" class="link">choisis un fichier</button>
+      <input id="file" type="file" accept="image/gif,image/png,image/webp,image/jpeg" hidden>
+    </div>
+    <p id="sendMsg" class="msg"></p>
+  </section>
+
+  <section>
+    <h2>Réglages</h2>
+    <label>Serveur
+      <div class="row">
+        <input id="serverInput" autocomplete="off" spellcheck="false">
+        <button id="serverSave" class="secondary">OK</button>
+      </div>
+    </label>
+    <label>Coin d'affichage
+      <select id="corner">
+        <option value="bottom-right">En bas à droite</option>
+        <option value="bottom-left">En bas à gauche</option>
+        <option value="top-right">En haut à droite</option>
+        <option value="top-left">En haut à gauche</option>
+      </select>
+    </label>
+    <label>Durée d'affichage : <b id="durLabel"></b> s
+      <input id="duration" type="range" min="2" max="30" step="1">
+    </label>
+    <label class="check"><input id="dnd" type="checkbox"> Ne pas déranger (masquer les GIF reçus)</label>
+    <label class="check" id="loginRow"><input id="login" type="checkbox"> Lancer au démarrage de l'ordinateur</label>
+    <div class="row"><button id="test" class="secondary">Tester l'affichage</button></div>
+    <p id="settingsMsg" class="msg"></p>
+  </section>
+</main>
+<script src="panel.js"></script>
+</body>
+</html>

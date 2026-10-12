@@ -1,0 +1,30 @@
+{
+  "name": "love-room",
+  "productName": "Love Room",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Envoyez-vous des GIF qui apparaissent dans un coin de l'écran",
+  "main": "src/main.js",
+  "author": "Love Room",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "dependencies": { "ws": "^8.18.0" },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "app.loveroom.desktop",
+    "productName": "Love Room",
+    "files": ["src/**/*", "renderer/**/*", "assets/**/*", "package.json"],
+    "win": { "target": ["nsis", "portable"], "icon": "assets/icon.png" },
+    "nsis": { "oneClick": true, "perMachine": false },
+    "mac": { "target": ["dmg"], "category": "public.app-category.social-networking", "icon": "assets/icon.png" },
+    "linux": { "target": ["AppImage"], "category": "Network", "icon": "assets/icon.png" }
+  }
+}
